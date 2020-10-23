@@ -67,11 +67,14 @@ module.exports = {
   pagesPath: 'pages',
   templatesPath: 'templates',
   plugins: [],
-  contents: {
-    path: 'contents',
-    generatePath: 'blog',
-    template: 'blog.ulka',
-  },
+  contents: [
+    {
+      path: 'contents',
+      generatePath: 'blog',
+      template: 'blog.ulka',
+      name: 'blog',
+    },
+  ],
 }
 ```
 

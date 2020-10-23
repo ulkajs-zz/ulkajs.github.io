@@ -18,7 +18,7 @@ Ulka config file is javascript file which exports object consisting of special k
 
 ## Understanding the config
 
-We added something in ulka-config.js in previous section. How let's understand what each key is for.
+We added something in ulka-config.js in previous section. Now let's understand what each key is for.
 
 ```js
 // ulka-config.js
@@ -32,11 +32,14 @@ module.exports = {
   pagesPath: 'pages',
   templatesPath: 'templates',
   plugins: [],
-  contents: {
-    path: 'contents',
-    generatePath: 'blog',
-    template: 'blog.ulka',
-  },
+  contents: [
+    {
+      path: 'contents',
+      generatePath: 'blog',
+      template: 'blog.ulka',
+      name: 'blog',
+    },
+  ],
 }
 ```
 
@@ -58,10 +61,15 @@ pagesPath is a folder inside `src` directory where pages files are located.
 
 ### contents
 
-contents accepts array of object. This tells ulka where to look for contents files, which template to use from `templatesPath` and path to generate the static files.
+contents accepts array of objects with four keys.
+
+- path: It is the path to the contents from src directory
+- generatePath: It is the path where html from contents is generated.
+- template: It is the name of the template in templatesPath.
+- name: Unique identifier of the contents.
 
 ### plugins
 
-plugins are described [here](/docs/plugins). We will adding some plugins in our portfolio app.
+plugins are described [here](/docs/plugins). Later we will be adding some plugins in our portfolio app.
 
 > We will get into pagesPath, templatesPath and contents more on upcoming sections.
