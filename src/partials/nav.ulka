@@ -1,0 +1,33 @@
+{%
+    const links = [
+        { href: "/docs", content: "Docs" },
+        { href: "/tutorial", content: "Tutorial" },
+        { href: "/blog", content: "Blog" },
+        { href: "https://github.com/ulkajs/ulka", content: "Github" }
+    ]
+%}
+
+{% 
+    function setActive(href) {
+        if(typeof path === "string" && path === href){
+            return "class='active'"
+        }
+        return ''
+    }
+%}
+
+<nav>
+    <div class="container">
+        <a href="/" class="nav-logo">
+            <img src="/logo.png" alt="ulka logo" />
+            <span>Ulka</span>
+        </a>
+        <ul class="nav-links">
+            {% links.map(l => `<li class="nav-link"><a ${setActive(l.href)} href="${l.href}">${l.content}</a></li>`) %}
+            
+            <li class="nav-link">
+                <a onclick="toggleTheme()" class="toggle-mode"></a>
+            </li>
+        </ul>
+    </div>
+</nav>

@@ -1,6 +1,13 @@
 ---
 title: 'Quickstart'
 page: 2
+links:
+  - title: 'Creating a new project'
+    link: '#creating-a-new-project'
+  - title: 'Creating production build'
+    link: '#creating-production-build'
+  - title: 'Installing ulka globally'
+    link: '#installing-ulka-globally'
 ---
 
 > This quick start is not intended for developers who are just getting into ulkajs. For step by step guide to create new ulka project, head to our [tutorial](/tutorial)!
@@ -29,9 +36,7 @@ npx ulka build
 
 This command builds all the files into build path specified in `ulka-config.js`
 
-<br />
-
-## Serving the production build.
+**Serving production build**
 
 ```
 npx ulka serve

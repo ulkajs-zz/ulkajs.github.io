@@ -48,25 +48,7 @@
     </style>
   </head>
   <body class="light">
-    <nav>
-      <div class="container">
-        <a href="/" class="nav-logo">
-          <img src="./logo.png" alt="ulka logo" />
-          <span>Ulka</span>
-        </a>
-        <ul class="nav-links">
-          <li class="nav-link"><a href="/docs">Docs</a></li>
-          <li class="nav-link"><a href="/tutorial">Tutorial</a></li>
-          <li class="nav-link"><a href="/blog">Blog</a></li>
-          <li class="nav-link">
-            <a href="https://github.com/ulkajs/ulka">Github</a>
-          </li>
-          <li class="nav-link">
-            <a onclick="toggleTheme()" class="toggle-mode"></a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <%- $import('../partials/nav.ulka', {path: ""}) %>
     <main>
       <div class="homepage">
         <img src="./logo.png" alt="logo" width="100" />

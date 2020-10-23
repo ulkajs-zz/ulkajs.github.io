@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% values.frontMatter.title %} | {% info.configs.siteMetaData.title %}</title>
     <link rel="stylesheet" href="{% $assets('../styles/style.css') %}" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/tomorrow-night.min.css" />
+    <link rel="stylesheet" href="{% $assets('../styles/highlight.css') %}" />
     <style>
       footer {
         text-align: center;
@@ -29,28 +29,20 @@
         border-radius: 5px;
         border: 0.5px solid rgba(0,0,0,0.5);
       }
+
+      .sub-links {
+        margin-left: 15px;
+      }
+
+      .sub-links a {
+        font-size: 15px;
+        font-weight: 400;
+      }
     </style>
   </head>
   <body class="light">
-    <nav>
-      <div class="container">
-        <a href="/" class="nav-logo">
-          <img src="/logo.png" alt="ulka logo" />
-          <span>Ulka</span>
-        </a>
-        <ul class="nav-links">
-          <li class="nav-link"><a href="/docs">Docs</a></li>
-          <li class="nav-link"><a href="/tutorial">Tutorial</a></li>
-          <li class="nav-link"><a href="/blog">Blog</a></li>
-          <li class="nav-link">
-            <a href="https://github.com/ulkajs/ulka">Github</a>
-          </li>
-          <li class="nav-link">
-            <a onclick="toggleTheme()" class="toggle-mode"></a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+   {% $import('../partials/nav.ulka', {path: "/docs"}) %}
+
     <main class="sidebar-main">
      <div class="sidebar">
         {% 
@@ -60,6 +52,19 @@
             .map(content => `
             <div class="sidebar-main-link">
               <a ${content.link === link ? "class = 'active'": ""} href="${content.link}">${content.values.frontMatter.title}</a>
+              ${content.link === link ? `
+                <div class="sub-links">
+                ${
+                content.values.frontMatter.links
+                
+                ? content.values.frontMatter.links
+                  .map(l => `<a href="${l.link}">> ${l.title}</a>`)
+                  .join('<br />')
+                : ""
+
+                }
+                </div>
+              `: ""}
             </div>
           `)
         %}

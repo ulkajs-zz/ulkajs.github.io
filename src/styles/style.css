@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
-
 * {
   box-sizing: border-box;
 }
@@ -18,13 +17,11 @@ body.light {
   --heavy-background-color: #fff;
   --text-color: #333;
   --ulka-primary: #2887bc;
-  --light-background-color: #f4f4f4;
 }
 
 body.dark {
-  --background-color: #1b2842;
-  --heavy-background-color: #0e192b;
-  --light-background-color: #1d263a;
+  --background-color: #1e1e25;
+  --heavy-background-color: #15141b;
   --text-color: #dad9d9;
   --ulka-primary: #2887bc;
 }
@@ -34,7 +31,7 @@ body.dark {
 }
 
 blockquote {
-  background-color: var(--light-background-color);
+  background-color: var(--heavy-background-color);
   padding: 5px 10px;
   margin: 0;
   border-left: 3px solid var(--ulka-primary);
@@ -168,7 +165,7 @@ nav .container {
   position: sticky;
   top: 60px;
   bottom: 0px;
-  padding: 40px 30px;
+  padding: 40px 10px;
 }
 
 .sidebar-main-link a {
@@ -176,7 +173,8 @@ nav .container {
   color: var(--text-color);
   font-weight: 500;
 }
-.sidebar-main-link a.active {
+
+a.active {
   text-decoration: none;
   font-weight: 500;
   color: var(--ulka-primary);

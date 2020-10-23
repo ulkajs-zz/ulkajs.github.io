@@ -1,7 +1,7 @@
 ---
 title: 'Introduction'
 page: 1
-options:
+links:
   - title: 'Get Started'
     link: '#get-started'
 ---
