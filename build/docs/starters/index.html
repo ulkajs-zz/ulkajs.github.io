@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% values.frontMatter.title %} | {% info.configs.siteMetaData.title %}</title>
+    <title>Starters - Documentation | Ulka</title>
     <link rel="shortcut icon" href="./logo.png" type="image/x-icon" />
-    <link rel="stylesheet" href="{% $assets('../styles/style.css') %}" />
-    <link rel="stylesheet" href="{% $assets('../styles/highlight.css') %}" />
+    <link rel="stylesheet" href="/__assets__/a2b57ebcee531af175a9451a1fddbb9f06c92bcf.css" />
+    <link rel="stylesheet" href="/__assets__/1f9439912701637aef852e36707ef2cf186e6796.css" />
     <style>
       footer {
         text-align: center;
@@ -57,52 +57,74 @@
   </head>
 
   <body class="light">
-   {% $import('../partials/nav.ulka', {path: `/${name}`}) %}
+   
+
+
+
+<nav>
+    <div class="container">
+        <a href="/" class="nav-logo">
+            <img src="/logo.png" alt="ulka logo" />
+            <span>Ulka</span>
+        </a>
+        <ul class="nav-links">
+            <li class="nav-link"><a class='active' href="/docs">Docs</a></li><li class="nav-link"><a  href="/tutorial">Tutorial</a></li><li class="nav-link"><a  href="/blog">Blog</a></li><li class="nav-link"><a  href="https://github.com/ulkajs/ulka">Github</a></li>
+            
+            <li class="nav-link">
+                <a onclick="toggleTheme()" class="toggle-mode"></a>
+            </li>
+        </ul>
+    </div>
+</nav>
     <main class="sidebar-main">
      <div class="sidebar">
-      {% const curContent = contents[name] %}
-        {% 
-         [...curContent]
-            .sort((a, b) => a.values.frontMatter.page - b.values.frontMatter.page)
-            .map(content => `
+      
+        
             <div class="sidebar-main-link">
-              <a ${content.link === link ? "class = 'active'": ""} href="${content.link}">${content.values.frontMatter.title}</a>
-              ${content.link === link ? `
-                <div class="sub-links">
-                ${
-                content.values.frontMatter.links
-                
-                ? content.values.frontMatter.links
-                  .map(l => `<a href="${l.link}">> ${l.title}</a>`)
-                  .join('<br />')
-                : ""
-
-                }
-                </div>
-              `: ""}
+              <a  href="/docs/">Introduction</a>
+              
             </div>
-          `)
-        %}
+          
+            <div class="sidebar-main-link">
+              <a  href="/docs/quickstart/">Quickstart</a>
+              
+            </div>
+          
+            <div class="sidebar-main-link">
+              <a  href="/docs/plugins/">Plugins</a>
+              
+            </div>
+          
+            <div class="sidebar-main-link">
+              <a class = 'active' href="/docs/starters/">Starters</a>
+              
+                <div class="sub-links">
+                
+                </div>
+              
+            </div>
+          
       </div>
       <div class="content">
         <div class="container">
           <div>
-            <h1 style="padding: 20px 0;">{% values.frontMatter.title %}</h1>
-          {% data %}
-           <a class="edit-on-github" target="__blank" href="https://github.com/ulkajs/ulkajs.github.io/tree/main/{% source %}"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="css-9u48bm" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path></svg>&nbsp;
+            <h1 style="padding: 20px 0;">Starters</h1>
+          <blockquote>
+<p>COMING SOON....</p>
+</blockquote>
+
+           <a class="edit-on-github" target="__blank" href="https://github.com/ulkajs/ulkajs.github.io/tree/main/src\docs\starters.md"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="css-9u48bm" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path></svg>&nbsp;
           <span>Edit this page on github</span>
            </a>
           </div>
           <div class="prev-next">
-            {% 
-              const prev = contents[name].filter(d => d.values.frontMatter.page === values.frontMatter.page - 1)[0]
-              const next = contents[name].filter(d => d.values.frontMatter.page === values.frontMatter.page + 1)[0]
-            %}
-            {% prev ? `<p><a href="${prev.link}">< ${prev.values.frontMatter.title}</a></p>`: "<p></p>" %}
-            {% next ? `<p><a href="${next.link}">${next.values.frontMatter.title} ></a></p>`: "<p></p>" %}
+            
+            <p><a href="/docs/plugins/">< Plugins</a></p>
+            <p></p>
           </div>
         </div>
-        {% $import('../partials/footer.ulka') %}
+        <footer>ulkajs &copy; 2020</footer>
+
       </div>
     </main>
 

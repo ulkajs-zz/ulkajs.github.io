@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "develop": "ulka develop",
+    "serve": "ulka serve",
+    "build": "ulka build"
   },
   "repository": {
     "type": "git",
