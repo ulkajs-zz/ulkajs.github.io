@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% values.frontMatter.title %} | {% info.configs.siteMetaData.title %}</title>
+    <link rel="stylesheet" href="{% $assets('../styles/style.css') %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/tomorrow-night.min.css" />
+    <style>
+      footer {
+        text-align: center;
+        min-height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--heavy-background-color);
+        color: var(--text-color)
+      }
+     
+      .prev-next {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .prev-next a {
+        display: block;
+        background: var(--heavy-background-color);
+        padding: 10px;
+        border-radius: 5px;
+        border: 0.5px solid rgba(0,0,0,0.5);
+      }
+    </style>
+  </head>
+  <body class="light">
+    <nav>
+      <div class="container">
+        <a href="/" class="nav-logo">
+          <img src="/logo.png" alt="ulka logo" />
+          <span>Ulka</span>
+        </a>
+        <ul class="nav-links">
+          <li class="nav-link"><a href="/docs">Docs</a></li>
+          <li class="nav-link"><a href="/tutorial">Tutorial</a></li>
+          <li class="nav-link"><a href="/blog">Blog</a></li>
+          <li class="nav-link">
+            <a href="https://github.com/ulkajs/ulka">Github</a>
+          </li>
+          <li class="nav-link">
+            <a onclick="toggleTheme()" class="toggle-mode"></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <main class="sidebar-main">
+     <div class="sidebar">
+        {% 
+          contents
+            .docs
+            .sort((a, b) => a.values.frontMatter.page - b.values.frontMatter.page)
+            .map(content => `
+            <div class="sidebar-main-link">
+              <a ${content.link === link ? "class = 'active'": ""} href="${content.link}">${content.values.frontMatter.title}</a>
+            </div>
+          `)
+        %}
+      </div>
+      <div class="content">
+        <div class="container">
+          <div>
+            <h1 style="padding: 20px 0;">{% values.frontMatter.title %}</h1>
+          {% data %}
+          </div>
+          <div class="prev-next">
+            {% 
+              const prev = contents.docs.filter(d => d.values.frontMatter.page === values.frontMatter.page - 1)[0]
+              const next = contents.docs.filter(d => d.values.frontMatter.page === values.frontMatter.page + 1)[0]
+            %}
+            {% prev ? `<p><a href="${prev.link}">< ${prev.values.frontMatter.title}</a></p>`: "<p></p>" %}
+            {% next ? `<p><a href="${next.link}">${next.values.frontMatter.title} ></a></p>`: "<p></p>" %}
+          </div>
+        </div>
+        {% $import('../partials/footer.ulka') %}
+      </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.1/highlight.min.js" integrity="sha512-Ypjm0o7jOxAd4hpdoppSEN0TQOC19UtPAqD+4s5AlXmUvbmmS/YMxYqAqarQYyxTnB6/rqip9qcxlNB/3U9Wdg==" crossorigin="anonymous"></script>
+  
+    <script>
+      document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('pre code').forEach((block) => {
+          hljs.highlightBlock(block);
+        });
+      });
+    </script> 
+
+    <script>
+      const toggle = document.querySelector('.toggle-mode')
+
+      function findTheme(){
+        let theme = localStorage.getItem('theme')
+        return ["dark", "light"].includes(theme) ? theme : "light"
+      }
+
+      function setTheme(theme){
+        document.body.className = theme
+        toggle.textContent = theme === "light" ? "🌙" : "🌕"
+        localStorage.setItem("theme", theme)
+      }
+
+      function toggleTheme(){
+        const theme = findTheme()
+        const newTheme = theme === "light" ? "dark" : "light"
+        setTheme(newTheme)
+      }
+
+      setTheme(findTheme())
+    </script>
+  </body>
+</html>

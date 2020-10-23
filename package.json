@@ -1,0 +1,27 @@
+{
+  "name": "ulkajs.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ulkajs/ulkajs.github.io.git"
+  },
+  "author": "Roshan Acharya",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ulkajs/ulkajs.github.io/issues"
+  },
+  "homepage": "https://github.com/ulkajs/ulkajs.github.io#readme",
+  "devDependencies": {
+    "ulka": "^0.6.7-rc.1"
+  },
+  "dependencies": {
+    "ulka-plugin-autolink-headers": "^1.1.2",
+    "ulka-plugin-sitemap": "^1.1.1",
+    "ulka-source-ejs": "^1.2.0"
+  }
+}
