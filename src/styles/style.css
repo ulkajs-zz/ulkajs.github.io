@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+/*  */
 * {
   box-sizing: border-box;
 }
@@ -7,7 +9,7 @@ html,
 body {
   scroll-behavior: smooth;
   scroll-padding-top: 60px;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -20,8 +22,8 @@ body.light {
 }
 
 body.dark {
-  --background-color: #1e1e25;
-  --heavy-background-color: #15141b;
+  --background-color: #1c1c1c;
+  --heavy-background-color: #131212;
   --text-color: #dad9d9;
   --ulka-primary: #2887bc;
 }
@@ -48,6 +50,7 @@ code {
   background: var(--heavy-background-color);
   padding: 3px 7px;
   border-radius: 4px;
+  font-family: 'Ubuntu Mono', monospace;
 }
 
 main {
@@ -107,7 +110,7 @@ nav .container {
 .nav-link a {
   text-decoration: none;
   color: var(--text-color);
-  font-size: 17px;
+  font-size: 18px;
   height: 100%;
 }
 
@@ -165,13 +168,15 @@ nav .container {
   position: sticky;
   top: 60px;
   bottom: 0px;
-  padding: 40px 10px;
+  padding: 40px 20px;
 }
 
 .sidebar-main-link a {
   text-decoration: none;
   color: var(--text-color);
-  font-weight: 500;
+  font-size: 17px;
+  padding: 5px 0px;
+  display: block;
 }
 
 a.active {
