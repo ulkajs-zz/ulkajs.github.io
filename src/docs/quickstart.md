@@ -21,7 +21,7 @@ npx ulka create ulka-site ulkajs/ulka-starter-default -i npm
 
 cd ulka-site
 
-npx ulka develop
+npm run develop # OR npx ulka develop
 ```
 
 Above command will download the default starter from github, install all the dependencies and start the ulka development server.
@@ -30,16 +30,16 @@ Above command will download the default starter from github, install all the dep
 
 ## Creating production build
 
-```
-npx ulka build
+```bash
+npm run build # OR npx ulka build
 ```
 
 This command builds all the files into build path specified in `ulka-config.js`
 
 **Serving production build**
 
-```
-npx ulka serve
+```bash
+npm run serve # OR npx ulka serve
 ```
 
 <br />
@@ -48,6 +48,6 @@ npx ulka serve
 
 You can install ulka globally but it is not recommended as ulka is not completely ready and new versions with betters features will be released in shortly. You would never want to miss those, would you ?. If yes 😠 please go ahead and run the following command.
 
-```
+```bash
 npm i -g ulka
 ```

@@ -12,7 +12,9 @@ links:
 
 ## What are ulka plugins ?
 
-Ulka plugins are scripts that lets you to customize the data and the site. Plugins can add, modify and remove the data or files, plugins can add new features to the site, plugins can do anything you have on your mind.
+Ulka plugins are scripts that lets you to customize the data and the site. Ulkajs makes it more easier to add, modify or delete data.
+
+<br />
 
 ## Using ulka plugins
 
@@ -21,7 +23,7 @@ Using ulka plugins is very straight forward. All you need to do is download the 
 For eg: <br />
 If you want to generate sitemap for your site, then there is a plugin for ulka called `ulka-plugin-sitemap`
 
-To install it run the following command in root of your project.
+To install it run the following command in root directory of your project.
 
 ```
 npm i ulka-plugin-sitemap
