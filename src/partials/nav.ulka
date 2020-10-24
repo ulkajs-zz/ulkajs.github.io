@@ -2,7 +2,6 @@
     const links = [
         { href: "/docs", content: "Docs" },
         { href: "/tutorial", content: "Tutorial" },
-        { href: "/blog", content: "Blog" },
         { href: "https://github.com/ulkajs/ulka", content: "Github" }
     ]
 %}
