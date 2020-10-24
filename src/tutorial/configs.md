@@ -25,8 +25,8 @@ We added something in ulka-config.js in previous section. Now let's understand w
 
 module.exports = {
   siteMetaData: {
-    title: 'UlkaJs',
-    description: 'This is a starter for ulka js',
+    title: 'Roshan Acharya',
+    description: 'Hello, I am fullstack web developer from Nepal.',
   },
   buildPath: 'build',
   pagesPath: 'pages',

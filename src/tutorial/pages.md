@@ -161,7 +161,7 @@ Now let's replace dummy data inside out pages files with some html.
       <main>
         <nav>
           <div class="title">
-            <a href="/">ulka js</a>
+            <a href="/">coderosh</a>
           </div>
           <ul id="nav-links">
             <li><a href="/about">about</a></li>
@@ -172,7 +172,7 @@ Now let's replace dummy data inside out pages files with some html.
           <!-- list of blog goes here -->
         </div>
       </main>
-      <footer>&copy; 2020, Ulka Js</footer>
+      <footer>&copy; 2020, coderosh</footer>
     </div>
   </body>
 </html>
