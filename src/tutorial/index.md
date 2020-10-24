@@ -31,7 +31,7 @@ mkdir my-portfolio
 cd my-portfolio
 ```
 
-To install `ulka` we need to create `package.json` files. So, let's create `package.json` file using npm.
+To install `ulka` we need to create `package.json` file. So, let's create `package.json` file using npm.
 
 ```bash
 npm init -y

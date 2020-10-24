@@ -111,9 +111,30 @@
     <script>
       document.addEventListener('DOMContentLoaded', (event) => {
         document.querySelectorAll('pre code').forEach((block) => {
+          if(!hljs) return
+          hljs.registerLanguage('ulka', highlightUlka);
           hljs.highlightBlock(block);
         });
       });
+
+      function highlightUlka(e) {
+        return {
+          name: "ulka",
+          aliases: ["ulka"],
+          subLanguage: ["xml"],
+          contains: [
+            e.C_LINE_COMMENT_MODE,
+            e.C_BLOCK_COMMENT_MODE,
+            {
+              className: "ulka",
+              begin: "\{%",
+              end: "%}",
+              subLanguage: ["javascript"],
+            },
+          ]
+        }
+      }
+      
     </script> 
 
     <script>
