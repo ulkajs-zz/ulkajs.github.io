@@ -5,8 +5,15 @@
 <url> <loc>https://ulkajs.github.io/docs/quickstart/</loc>  <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://ulkajs.github.io/docs/starters/</loc>  <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://ulkajs.github.io/</loc>  <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://ulkajs.github.io/tutorial/assets/</loc>  <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://ulkajs.github.io/tutorial/build/</loc>  <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://ulkajs.github.io/tutorial/configs/</loc>  <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://ulkajs.github.io/tutorial/contents/</loc>  <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://ulkajs.github.io/tutorial/directory/</loc>  <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://ulkajs.github.io/tutorial/globalvars/</loc>  <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://ulkajs.github.io/tutorial/import/</loc>  <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://ulkajs.github.io/tutorial/</loc>  <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://ulkajs.github.io/tutorial/pages/</loc>  <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://ulkajs.github.io/tutorial/plugins/</loc>  <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://ulkajs.github.io/tutorial/syntax/</loc>  <changefreq>daily</changefreq> <priority>0.7</priority> </url>
         </urlset>

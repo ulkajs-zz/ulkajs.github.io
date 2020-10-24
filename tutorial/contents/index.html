@@ -1,0 +1,108 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width,initial-scale=1"> <title>Contents & Templates | Ulka</title> <link rel="shortcut icon" href="/logo.png" type="image/x-icon"> <link rel="stylesheet" href="/__assets__/a2b57ebcee531af175a9451a1fddbb9f06c92bcf.css"> <link rel="stylesheet" href="/__assets__/1f9439912701637aef852e36707ef2cf186e6796.css"> <style>footer{text-align:center;min-height:60px;display:flex;align-items:center;justify-content:center;background:var(--heavy-background-color);color:var(--text-color)}.prev-next{display:flex;margin-top:40px;justify-content:space-between}.prev-next a{display:block;background:var(--heavy-background-color);padding:10px;border-radius:5px;border:.5px solid rgba(0,0,0,.5)}.sub-links{margin-left:15px}.sub-links a{font-weight:400;font-size:16px;display:inline}.edit-on-github{margin-top:20px;background:var(--heavy-background-color);padding:10px;border-radius:5px;display:flex;align-items:center;width:fit-content;border:.5px solid rgba(0,0,0,.5)}hr{opacity:.3;margin-top:30px;margin-bottom:30px}</style> </head> <body class="light"> <nav> <div class="container"> <a href="/" class="nav-logo"> <img src="/logo.png" alt="ulka logo"> <span>Ulka</span> </a> <ul class="nav-links"> <li class="nav-link"><a href="/docs">Docs</a></li><li class="nav-link"><a class="active" href="/tutorial">Tutorial</a></li><li class="nav-link"><a href="/blog">Blog</a></li><li class="nav-link"><a href="https://github.com/ulkajs/ulka">Github</a></li> <li class="nav-link"> <a onclick="toggleTheme()" class="toggle-mode"></a> </li> </ul> </div> </nav> <main class="sidebar-main"> <div class="sidebar"> <div class="sidebar-main-link"> <a href="/tutorial/">Installation and setup</a> </div> <div class="sidebar-main-link"> <a href="/tutorial/configs/">Configs</a> </div> <div class="sidebar-main-link"> <a href="/tutorial/directory/">Project Directory</a> </div> <div class="sidebar-main-link"> <a href="/tutorial/syntax/">Ulka syntax</a> </div> <div class="sidebar-main-link"> <a href="/tutorial/pages/">Pages</a> </div> <div class="sidebar-main-link"> <a href="/tutorial/globalvars/">Global variables</a> </div> <div class="sidebar-main-link"> <a class="active" href="/tutorial/contents/">Contents & Templates</a> <div class="sub-links"> <a href="#how-does-this-work">> How does this work ?</a><br><a href="#creating-template-file">> Creating template file</a><br><a href="#adding-contents">> Adding contents</a><br><a href="#front-matter">> Front matter</a><br><a href="#using-the-frontmatter">> Using the frontmatter</a><br><a href="#rendering-markdown-data">> Rendering markdown data</a><br><a href="#listing-all-the-blogs">> Listing all the blogs</a> </div> </div> <div class="sidebar-main-link"> <a href="/tutorial/import/">Importing</a> </div> <div class="sidebar-main-link"> <a href="/tutorial/assets/">Using assets</a> </div> <div class="sidebar-main-link"> <a href="/tutorial/plugins/">Using plugins</a> </div> <div class="sidebar-main-link"> <a href="/tutorial/build/">Build & Deploy</a> </div> </div> <div class="content"> <div class="container"> <div> <h1 style="padding:20px 0">Contents & Templates</h1> <blockquote> <p>In this section, we will generate html from markdown files and templates.</p> </blockquote> <h2 style="" class="ulka-heading" id="how-does-this-work"><a class="ulka-heading-anchor" href="#how-does-this-work"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> How does this work ?</h2> <p>As a remainder let's look at <code>contents</code> key in <code>ulka-config.js</code> file.</p> <pre><code class="language-js">contents: [
+  {
+    path: 'contents',
+    generatePath: 'blog',
+    template: 'blog.ulka',
+  },
+]
+</code></pre> <p>You have three keys <code>path</code>, <code>generatePath</code>, <code>template</code>. All three keys are described in <a href="/tutorial/configs">configs</a> section. But Let's go through them again.</p> <p><code>path</code> refers to the folder where content is inside the src folder.</p> <p><code>generatePath</code> is the folder where html files should be generated.</p> <p><code>template</code> is a file which will be a wrapper around the markdown contents.</p> <p>If you are feeling confused, let's implement this on our site.</p> <p><br></p> <h2 style="" class="ulka-heading" id="creating-template-file"><a class="ulka-heading-anchor" href="#creating-template-file"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> Creating template file</h2> <p>Let's create a file <code>blog.ulka</code> (filename should be same as template key in contents) inside <code>templates</code> directory.</p> <p>And add the following content in that file.</p> <p><code>templates/blog.ulka</code></p> <pre><code class="language-ulka">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Blog&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;main&gt;
+        &lt;nav&gt;
+          &lt;div class=&quot;title&quot;&gt;
+            &lt;a href=&quot;/&quot;&gt;coderosh&lt;/a&gt;
+          &lt;/div&gt;
+          &lt;ul id=&quot;nav-links&quot;&gt;
+            &lt;li&gt;&lt;a href=&quot;/about&quot;&gt;about&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;/blog&quot;&gt;blog&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/nav&gt;
+        &lt;div class=&quot;blog-title&quot;&gt;Title&lt;/div&gt;
+        &lt;span class=&quot;blog-date&quot;&gt;Date&lt;/span&gt;
+        &lt;div class=&quot;blog-body&quot;&gt;
+          &lt;!-- data from contents goes here --&gt;
+        &lt;/div&gt;
+      &lt;/main&gt;
+      &lt;footer&gt;&amp;copy; 2020, coderosh&lt;/footer&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre> <p>We have just added the placeholder contents. We will add real content data soon.</p> <p><br></p> <h2 style="" class="ulka-heading" id="adding-contents"><a class="ulka-heading-anchor" href="#adding-contents"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> Adding contents</h2> <p>After the template is created, let's create two files with name post-1.md and post-2.md inside <code>contents</code> folder (this folder's name should be same as <code>path</code> key discussed above).</p> <p>After creating files navigate to <code>/blog/post-1</code> or <code>/blog/post-2</code> in your browser. In both, you will see the html we have written in <code>templates/blog.ulka</code>.</p> <p>Now, let's write some markdown inside post-1.md and post-2.md</p> <p><code>post-1.md</code></p> <pre><code class="language-markdown">---
+title: 'Getting started with ulka'
+description: 'this is a first blog'
+date: 2020-2-2
+---
+
+# This is a heading 1
+
+&gt; This is a quote
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eros magna.
+
+## This is heading 2
+</code></pre> <p><code>post-2.md</code></p> <pre><code class="language-markdown">---
+title: 'Getting started with ulka'
+description: 'this is a first blog'
+date: 2020-2-2
+---
+
+# Thi is the second post
+</code></pre> <p>You may have noticed there is written something inside those triple-dashed lines. Let's discuss what's all that about.</p> <p><br></p> <h2 style="" class="ulka-heading" id="front-matter"><a class="ulka-heading-anchor" href="#front-matter"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> Front matter</h2> <p>That content inside triple-dashed lines is front matter. That syntax you are seeing in between triple-dashed lines is yaml. Yaml frontmatter is processed by ulka and made available into the ulka files. You can use front matter to provide information to template about the markdown content and many more.</p> <p><br></p> <h2 style="" class="ulka-heading" id="using-the-frontmatter"><a class="ulka-heading-anchor" href="#using-the-frontmatter"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> Using the frontmatter</h2> <p>In <code>post-1.md</code> and <code>post-2.md</code> we have written frontmatter. That frontmatter has title, description and date. Now let's use that frontmatter in our <code>blog.ulka</code> template file.</p> <p>In <code>templates/blog.ulka</code> we have some placeholder values for title and date. Let's replace them.</p> <pre><code class="language-html">&lt;div class=&quot;blog-title&quot;&gt;Title&lt;/div&gt;
+&lt;span class=&quot;blog-date&quot;&gt;Date&lt;/span&gt;
+</code></pre> <p>Replace the above code with following.</p> <pre><code class="language-ulka">&lt;div class=&quot;blog-title&quot;&gt;{% values.frontMatter.title %}&lt;/div&gt;
+&lt;span class=&quot;blog-date&quot;&gt;{% new Date(values.frontMatter.date).toDateString() %}&lt;/span&gt;
+</code></pre> <p>Values is a <a href="/tutorial/globalvars">global variable</a> available in every <code>template</code> file. Ulka parses yaml frontmatter in content to object and adds that frontmatter to values object.</p> <p>Now if you navigate to the page <code>/blog/post-1</code> and <code>/blog/post-2</code> you will see the title and date from the front matter.</p> <p><br></p> <h2 style="" class="ulka-heading" id="rendering-markdown-data"><a class="ulka-heading-anchor" href="#rendering-markdown-data"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> Rendering markdown data</h2> <p>If successively used front matter in our template file. Now we will render the markdown as html inside the template. Behind the scene ulka will render the markdown as html and provide it to template file as <code>data</code> variable. Let's use that <code>data</code> variable in <code>templates/blog.ulka</code>.</p> <p>In <code>templates/blog.ulka</code> we have a comment as a placeholder for contents.</p> <pre><code class="language-html">&lt;div class=&quot;blog-body&quot;&gt;
+  &lt;!-- data from contents goes here --&gt;
+&lt;/div&gt;
+</code></pre> <p>Let's replace that comment with the data variable.</p> <pre><code class="language-ulka">&lt;div class=&quot;blog-body&quot;&gt;
+  {% data %}
+&lt;/div&gt;
+</code></pre> <p>Now when you visit the navigate to the page <code>/blog/post-1</code> and <code>/blog/post-2</code> you will see markdown data that is inserted inside the template file <code>blog.ulka</code>.</p> <p><br></p> <h2 style="" class="ulka-heading" id="listing-all-the-blogs"><a class="ulka-heading-anchor" href="#listing-all-the-blogs"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> Listing all the blogs</h2> <p>We successively created html from markdown and template files. Now let's show lists of all the posts inside <code>pages/blog.ulka</code>.</p> <p>All the files in pages directory have a variable called <code>contents</code> which consists info about the created contents. Let's use that variable and show the lists of all the created posts.</p> <p>Open <code>pages/blog.ulka</code>. We have the placeholder for list of blogs in that file.</p> <pre><code class="language-ulka">&lt;div id=&quot;blogs&quot;&gt;
+  &lt;!-- list of blog goes here --&gt;
+&lt;/div&gt;
+</code></pre> <p>Let's replace the above content with the following.</p> <pre><code class="language-ulka">&lt;div id=&quot;blogs&quot;&gt;
+  {%
+    contents
+      .blog
+      .map(cf =&gt; `
+        &lt;div class=&quot;blog-item&quot;&gt;
+          &lt;a href=&quot;${cf.link}&quot;&gt;
+            &lt;div class=&quot;blog-title&quot;&gt;${cf.values.frontMatter.title}&lt;/div&gt;
+          &lt;/a&gt;
+          &lt;div class=&quot;blog-desc&quot;&gt;
+            ${cf.values.frontMatter.description}
+          &lt;/div&gt;
+          &lt;div class=&quot;blog-date&quot;&gt;
+            ${new Date(cf.values.frontMatter.date).toDateString() }
+          &lt;/div&gt;
+        &lt;/div&gt;
+      `)
+  %}
+&lt;/div&gt;
+</code></pre> <p>Let's descuss what's happening there. <code>contents</code> has a key named <code>blog</code> (this is the same name we specified in contents[0].name). <code>contents.blog</code> is an array of object with info (values, link or url to the path, file stats etc.) about the contents inside <code>contents</code> directory.</p> <p>All we are doing there is looping through the array and returning some html. Ulka will join the array and return a string.</p> <p>Now if you navigate to <code>/blog</code> you will see the lists of posts we have created. If may want to sort your contents according to created date while displaying the list. For that we can use javascript's <code>sort</code> method. But if we sort it directly then it will change the original array <code>contents.blog</code> due to which we may receive unexpected output. So prevent that we will <code>slice</code> method which will create a new array for us.</p> <pre><code class="language-ulka">&lt;div id=&quot;blogs&quot;&gt;
+  {%
+    contents
+      .blog
+      .slice()
+      .sort((a, b) =&gt; new Date(b.values.frontMatter.date) - new Date(a.values.frontMatter.date))
+      .map(content =&gt;  `
+        &lt;div class=&quot;blog-item&quot;&gt;
+          &lt;a href=&quot;${content.link}&quot;&gt;
+            &lt;div class=&quot;blog-title&quot;&gt;${ content.values.frontMatter.title }&lt;/div&gt;
+          &lt;/a&gt;
+          &lt;div class=&quot;blog-desc&quot;&gt;
+            ${ content.values.frontMatter.description }
+          &lt;/div&gt;
+          &lt;div class=&quot;blog-date&quot;&gt;
+            ${ new Date(content.values.frontMatter.date).toDateString() }
+          &lt;/div&gt;
+        &lt;/div&gt;
+      `)
+  %}
+&lt;/div&gt;
+</code></pre> <p>Replace the previous logic with this. This will sort the contents according to the date in frontmatter. Now, if you navigate to <code>/blog</code> you will see the list of contents sorted according to date.</p> <p>If you are following from the begining then <code>contents</code>, <code>templates</code> and <code>pages</code> should be pretty clear till now. In next section we will separate repeated ulka code into different files.</p> <a class="edit-on-github" target="__blank" href="https://github.com/ulkajs/ulkajs.github.io/tree/main/src\tutorial\contents.md"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="css-9u48bm" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path></svg>&nbsp; <span>Edit this page on github</span> </a> </div> <div class="prev-next"> <p><a href="/tutorial/globalvars/">&lt; Global variables</a></p> <p><a href="/tutorial/import/">Importing &gt;</a></p> </div> </div> <footer>ulkajs &copy; 2020</footer> </div> </main> <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.1/highlight.min.js" integrity="sha512-Ypjm0o7jOxAd4hpdoppSEN0TQOC19UtPAqD+4s5AlXmUvbmmS/YMxYqAqarQYyxTnB6/rqip9qcxlNB/3U9Wdg==" crossorigin="anonymous"></script> <script>function highlightUlka(e){return{name:"ulka",aliases:["ulka"],subLanguage:"xml",contains:[e.C_LINE_COMMENT_MODE,e.C_BLOCK_COMMENT_MODE,{begin:"{%",end:"%}",subLanguage:"javascript",excludeBegin:!0,excludeEnd:!0,contains:[{begin:"`",end:"`",subLanguage:"xml",excludeBegin:!0,excludeEnd:!0}]}]}}document.addEventListener("DOMContentLoaded",e=>{document.querySelectorAll("pre code").forEach(e=>{hljs&&(hljs.registerLanguage("ulka",highlightUlka),hljs.highlightBlock(e))})})</script> <script>const toggle=document.querySelector(".toggle-mode");function findTheme(){let e=localStorage.getItem("theme");return["dark","light"].includes(e)?e:"light"}function setTheme(e){document.body.className=e,toggle.textContent="light"===e?"🌙":"🌕",localStorage.setItem("theme",e)}function toggleTheme(){setTheme("light"===findTheme()?"dark":"light")}setTheme(findTheme())</script> </body> </html> 
