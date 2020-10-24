@@ -75,7 +75,7 @@ If you are following this tutorial then your project directory should look somet
 
 ## Adding contents
 
-Now let's replace dummy data inside out pages files with some html.
+Now let's replace dummy data inside our pages files with some html.
 
 `index.ulka`
 

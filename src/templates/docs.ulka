@@ -53,6 +53,12 @@
         border: 0.5px solid rgba(0,0,0,0.5);
       }
 
+      hr {
+        opacity: 0.3;
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
+
     </style>
   </head>
 
@@ -107,7 +113,6 @@
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.1/highlight.min.js" integrity="sha512-Ypjm0o7jOxAd4hpdoppSEN0TQOC19UtPAqD+4s5AlXmUvbmmS/YMxYqAqarQYyxTnB6/rqip9qcxlNB/3U9Wdg==" crossorigin="anonymous"></script>
-  
     <script>
       document.addEventListener('DOMContentLoaded', (event) => {
         document.querySelectorAll('pre code').forEach((block) => {
@@ -115,21 +120,31 @@
           hljs.registerLanguage('ulka', highlightUlka);
           hljs.highlightBlock(block);
         });
-      });
+      }); 
 
-      function highlightUlka(e) {
+      function highlightUlka(hljs) {
         return {
           name: "ulka",
           aliases: ["ulka"],
-          subLanguage: ["xml"],
+          subLanguage: "xml",
           contains: [
-            e.C_LINE_COMMENT_MODE,
-            e.C_BLOCK_COMMENT_MODE,
+            hljs.C_LINE_COMMENT_MODE,
+            hljs.C_BLOCK_COMMENT_MODE,
             {
-              className: "ulka",
               begin: "\{%",
               end: "%}",
-              subLanguage: ["javascript"],
+              subLanguage: "javascript",
+              excludeBegin: true,
+              excludeEnd: true,
+              contains: [
+                {
+                  begin: "`",
+                  end: "`",
+                  subLanguage: "xml",
+                  excludeBegin: true,
+                  excludeEnd: true,
+                }
+              ]
             },
           ]
         }
