@@ -1,5 +1,5 @@
 ---
-title: '$import'
+title: 'Importing'
 page: 8
 links:
   - title: Why use $import

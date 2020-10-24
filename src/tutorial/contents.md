@@ -20,7 +20,7 @@ links:
 
 > In this section, we will generate html from markdown files and templates.
 
-## How does this work ? ?
+## How does this work ?
 
 As a remainder let's look at `contents` key in `ulka-config.js` file.
 
