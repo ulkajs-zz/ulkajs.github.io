@@ -16,6 +16,14 @@ module.exports = {
         hLevels: [1, 2, 3],
       },
     },
+    {
+      resolve: 'ulka-plugin-minifier',
+      options: {
+        html: {
+          conservativeCollapse: true,
+        },
+      },
+    },
   ],
   contents: [
     {

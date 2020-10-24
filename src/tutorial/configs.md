@@ -70,6 +70,6 @@ contents accepts array of objects with four keys.
 
 ### plugins
 
-plugins are described [here](/docs/plugins). Later we will be adding some plugins in our portfolio app.
+plugins are described [here](/docs/plugins). Later we will be adding some plugins to portfolio site.
 
 > We will get into pagesPath, templatesPath and contents more on upcoming sections.

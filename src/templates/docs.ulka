@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% values.frontMatter.title %} | {% info.configs.siteMetaData.title %}</title>
-    <link rel="shortcut icon" href="./logo.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="/logo.png" type="image/x-icon" />
     <link rel="stylesheet" href="{% $assets('../styles/style.css') %}" />
     <link rel="stylesheet" href="{% $assets('../styles/highlight.css') %}" />
     <style>
@@ -98,8 +98,8 @@
               const prev = contents[name].filter(d => d.values.frontMatter.page === values.frontMatter.page - 1)[0]
               const next = contents[name].filter(d => d.values.frontMatter.page === values.frontMatter.page + 1)[0]
             %}
-            {% prev ? `<p><a href="${prev.link}">< ${prev.values.frontMatter.title}</a></p>`: "<p></p>" %}
-            {% next ? `<p><a href="${next.link}">${next.values.frontMatter.title} ></a></p>`: "<p></p>" %}
+            {% prev ? `<p><a href="${prev.link}">&lt; ${prev.values.frontMatter.title}</a></p>`: "<p></p>" %}
+            {% next ? `<p><a href="${next.link}">${next.values.frontMatter.title} &gt;</a></p>`: "<p></p>" %}
           </div>
         </div>
         {% $import('../partials/footer.ulka') %}
