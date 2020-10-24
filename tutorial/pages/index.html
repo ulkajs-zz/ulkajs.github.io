@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pages | Ulka</title>
+    <link rel="shortcut icon" href="./logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/__assets__/a2b57ebcee531af175a9451a1fddbb9f06c92bcf.css" />
+    <link rel="stylesheet" href="/__assets__/1f9439912701637aef852e36707ef2cf186e6796.css" />
+    <style>
+      footer {
+        text-align: center;
+        min-height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--heavy-background-color);
+        color: var(--text-color)
+      }
+     
+      .prev-next {
+        display: flex;
+        margin-top: 40px;
+        justify-content: space-between;
+      }
+
+      .prev-next a {
+        display: block;
+        background: var(--heavy-background-color);
+        padding: 10px;
+        border-radius: 5px;
+        border: 0.5px solid rgba(0,0,0,0.5);
+      }
+
+      .sub-links {
+        margin-left: 15px;
+      }
+
+      .sub-links a {
+        font-weight: 400;
+        font-size: 16px;
+        display: inline;
+      }
+
+      .edit-on-github {
+        margin-top: 20px;
+        background: var(--heavy-background-color);
+        padding: 10px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        width: fit-content;
+        border: 0.5px solid rgba(0,0,0,0.5);
+      }
+
+    </style>
+  </head>
+
+  <body class="light">
+   
+
+
+
+<nav>
+    <div class="container">
+        <a href="/" class="nav-logo">
+            <img src="/logo.png" alt="ulka logo" />
+            <span>Ulka</span>
+        </a>
+        <ul class="nav-links">
+            <li class="nav-link"><a  href="/docs">Docs</a></li><li class="nav-link"><a class='active' href="/tutorial">Tutorial</a></li><li class="nav-link"><a  href="/blog">Blog</a></li><li class="nav-link"><a  href="https://github.com/ulkajs/ulka">Github</a></li>
+            
+            <li class="nav-link">
+                <a onclick="toggleTheme()" class="toggle-mode"></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+    <main class="sidebar-main">
+     <div class="sidebar">
+      
+        
+            <div class="sidebar-main-link">
+              <a  href="/tutorial/">Installation and setup</a>
+              
+            </div>
+          
+            <div class="sidebar-main-link">
+              <a  href="/tutorial/configs/">Configs</a>
+              
+            </div>
+          
+            <div class="sidebar-main-link">
+              <a  href="/tutorial/directory/">Project Directory</a>
+              
+            </div>
+          
+            <div class="sidebar-main-link">
+              <a class = 'active' href="/tutorial/pages/">Pages</a>
+              
+                <div class="sub-links">
+                <a href="#pages-folder">> Pages folder ?</a><br /><a href="#creating-pages">> Creating pages</a><br /><a href="#adding-contents">> Adding contents</a>
+                </div>
+              
+            </div>
+          
+      </div>
+      <div class="content">
+        <div class="container">
+          <div>
+            <h1 style="padding: 20px 0;">Pages</h1>
+          <blockquote>
+<p>In this section we will create some pages for out portfolio site.</p>
+</blockquote>
+<h2 style="" class="ulka-heading" id="pages-folder"><a class="ulka-heading-anchor" href="#pages-folder"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> Pages folder ?</h2>
+<p>By default ulka will look for <code>*.ulka</code> files inside <code>configs.pagesPath</code> directory. All the found files are rendered and html files in generated from those files. Don't worry about the <code>.ulka</code> files yet. We will get into that soon.</p>
+<p><strong>For eg:</strong> If your pages folder have files as follows.</p>
+<pre><code class="language-bash">index.ulka
+
+about\
+    about-me.ulka
+
+    about-you.ulka
+</code></pre>
+<p>Then ulka will generate the html files in <code>configs.buildPath</code> as follows.</p>
+<pre><code class="language-bash">index.html
+
+about\
+    about-me\
+        index.html
+
+    about-you\
+        index.html
+</code></pre>
+<p><br /></p>
+<h2 style="" class="ulka-heading" id="creating-pages"><a class="ulka-heading-anchor" href="#creating-pages"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> Creating pages</h2>
+<p>Now, let's create pages for our site.</p>
+<p>In the pages directory, create a new file <code>index.ulka</code>
+And write something in that file, something like &quot;Hello World&quot;. After that open terminal and navigate into the folder. If you are using <code>vscode</code> then you can press Ctrl and backticks at the same time to open the integrated terminal.</p>
+<p>Then enter <code>npm start</code> in the terminal. This will start the live-reloading development server in port 3000 or any port available and will also open browser.</p>
+<p>In browser you will see the content you have written in index.ulka. Now let's create about.ulka and blog.ulka and fill them with some dummy content.
+Now, if you navigate to <code>/about</code> or <code>/blog</code> you will see your dummy content.</p>
+<p>Now, your project directory should look like this.</p>
+<pre><code class="language-bash">├── node_modules
+├── src
+│   ├── pages
+│   |   ├── index.ulka
+│   |   ├── about.ulka
+│   |   └── blog.ulka
+│   ├── templates
+│   └── contents
+├── ulka-config.js
+├── package-lock.json
+└── package.json
+</code></pre>
+<p><br /></p>
+<h2 style="" class="ulka-heading" id="adding-contents"><a class="ulka-heading-anchor" href="#adding-contents"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> Adding contents</h2>
+<p>Now let's replace dummy data inside out pages files with some html.</p>
+<pre><code class="language-html">&lt;!-- index.ulka --&gt;
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+    &lt;title&gt;Home&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body class=&quot;dark&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;main&gt;
+        &lt;nav&gt;
+          &lt;div class=&quot;title&quot;&gt;
+            &lt;a href=&quot;/&quot;&gt;ulka js&lt;/a&gt;
+          &lt;/div&gt;
+          &lt;ul id=&quot;nav-links&quot;&gt;
+            &lt;li&gt;&lt;a href=&quot;/about&quot;&gt;about&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;/blog&quot;&gt;blog&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/nav&gt;
+
+        &lt;h2&gt;Hey, I am Roshan 👋&lt;/h2&gt;
+        &lt;blockquote&gt;creator of ulka js&lt;/blockquote&gt;
+        &lt;br /&gt;
+        If you have any queries regarding ulka ssg or this starter template dm
+        me at
+        &lt;a
+          style=&quot;text-decoration: underline;&quot;
+          href=&quot;https://twitter.com/acharyaroshanji&quot;
+          &gt;twitter&lt;/a
+        &gt;
+        &lt;br /&gt;
+        &lt;br /&gt;
+        You can find this starter template at
+        &lt;a
+          style=&quot;text-decoration: underline;&quot;
+          href=&quot;https://github.com/ulkajs/ulka-starter-default&quot;
+          &gt;Github&lt;/a
+        &gt;
+      &lt;/main&gt;
+      &lt;footer&gt;&amp;copy; 2020, Ulka Js&lt;/footer&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<pre><code class="language-html">&lt;!-- about.ulka --&gt;
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+    &lt;title&gt;About&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body class=&quot;dark&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;main&gt;
+        &lt;nav&gt;
+          &lt;div class=&quot;title&quot;&gt;
+            &lt;a href=&quot;/&quot;&gt;ulka js&lt;/a&gt;
+          &lt;/div&gt;
+          &lt;ul id=&quot;nav-links&quot;&gt;
+            &lt;li&gt;&lt;a href=&quot;/about&quot;&gt;about&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;/blog&quot;&gt;blog&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/nav&gt;
+        &lt;h1&gt;This is about me.&lt;/h1&gt;
+        &lt;br /&gt;
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores,
+        maxime?
+        &lt;br /&gt;
+        &lt;blockquote&gt;
+          Yeah, that's all about me. Not complicated at all.
+        &lt;/blockquote&gt;
+      &lt;/main&gt;
+      &lt;footer&gt;&amp;copy; 2020, Ulka Js&lt;/footer&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<pre><code class="language-html">&lt;!-- blog.ulka --&gt;
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+    &lt;title&gt;Blog&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body class=&quot;dark&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;main&gt;
+        &lt;nav&gt;
+          &lt;div class=&quot;title&quot;&gt;
+            &lt;a href=&quot;/&quot;&gt;ulka js&lt;/a&gt;
+          &lt;/div&gt;
+          &lt;ul id=&quot;nav-links&quot;&gt;
+            &lt;li&gt;&lt;a href=&quot;/about&quot;&gt;about&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;/blog&quot;&gt;blog&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/nav&gt;
+        &lt;div id=&quot;blogs&quot;&gt;&lt;/div&gt;
+      &lt;/main&gt;
+      &lt;footer&gt;&amp;copy; 2020, Ulka Js&lt;/footer&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Let's not focus in styling for now. We will style our page later.</p>
+
+           <a class="edit-on-github" target="__blank" href="https://github.com/ulkajs/ulkajs.github.io/tree/main/src\tutorial\pages.md"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="css-9u48bm" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path></svg>&nbsp;
+          <span>Edit this page on github</span>
+           </a>
+          </div>
+          <div class="prev-next">
+            
+            <p><a href="/tutorial/directory/">< Project Directory</a></p>
+            <p></p>
+          </div>
+        </div>
+        <footer>ulkajs &copy; 2020</footer>
+
+      </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.1/highlight.min.js" integrity="sha512-Ypjm0o7jOxAd4hpdoppSEN0TQOC19UtPAqD+4s5AlXmUvbmmS/YMxYqAqarQYyxTnB6/rqip9qcxlNB/3U9Wdg==" crossorigin="anonymous"></script>
+  
+    <script>
+      document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('pre code').forEach((block) => {
+          hljs.highlightBlock(block);
+        });
+      });
+    </script> 
+
+    <script>
+      const toggle = document.querySelector('.toggle-mode')
+
+      function findTheme(){
+        let theme = localStorage.getItem('theme')
+        return ["dark", "light"].includes(theme) ? theme : "light"
+      }
+
+      function setTheme(theme){
+        document.body.className = theme
+        toggle.textContent = theme === "light" ? "🌙" : "🌕"
+        localStorage.setItem("theme", theme)
+      }
+
+      function toggleTheme(){
+        const theme = findTheme()
+        const newTheme = theme === "light" ? "dark" : "light"
+        setTheme(newTheme)
+      }
+
+      setTheme(findTheme())
+    </script>
+  </body>
+</html>
