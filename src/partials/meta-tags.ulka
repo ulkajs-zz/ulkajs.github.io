@@ -1,0 +1,20 @@
+<!-- Primary Meta Tags -->
+<meta name="title" content="Ulka Documentation">
+<meta name="description" content="A simpler static site generator written in JavaScript to transform static data to html.">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="{% info.configs.siteMetaData.domain %}">
+<meta property="og:title" content="Ulka - Static site generator">
+<meta property="og:description" content="A simpler static site generator written in JavaScript to transform static data to html.">
+<meta property="og:image" content="{% info.configs.siteMetaData.domain %}/ulka_og.jpeg">
+
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@coderosh"/>
+<meta property="twitter:url" content="{% info.configs.siteMetaData.domain %}">
+<meta property="twitter:title" content="Ulka - Static site generator">
+<meta property="twitter:description" content="A simpler static site generator written in JavaScript to transform static data to html.">
+<meta property="twitter:image" content="{% info.configs.siteMetaData.domain %}/ulka_og.jpeg">

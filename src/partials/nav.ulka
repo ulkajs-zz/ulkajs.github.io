@@ -1,20 +1,3 @@
-{%
-    const links = [
-        { href: "/docs", content: "Docs" },
-        { href: "/tutorial", content: "Tutorial" },
-        { href: "https://github.com/ulkajs/ulka", content: "Github" }
-    ]
-%}
-
-{% 
-    function setActive(href) {
-        if(typeof path === "string" && path === href){
-            return "class='active'"
-        }
-        return ''
-    }
-%}
-
 <nav>
     <div class="container">
         <a href="/" class="nav-logo">
@@ -22,11 +5,18 @@
             <span>Ulka</span>
         </a>
         <ul class="nav-links">
-            {% links.map(l => `<li class="nav-link"><a ${setActive(l.href)} href="${l.href}">${l.content}</a></li>`) %}
+            {% $import('./nav-links.ulka') %}
             
             <li class="nav-link">
-                <a onclick="toggleTheme()" class="toggle-mode"></a>
+                <button onclick="toggleTheme()" class="toggle-mode"></button>
             </li>
         </ul>
+        <div class="toggle-sidebar">
+            <svg fill="currentColor" viewBox="0 0 60 44" width="25" height="25">
+                <rect y="0" width="65" height="7"></rect>
+                <rect y="20" width="65" height="7"></rect>
+                <rect y="40" width="65" height="7"></rect>
+            </svg>
+        </div>
     </div>
 </nav>

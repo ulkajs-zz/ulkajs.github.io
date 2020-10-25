@@ -42,8 +42,6 @@ You have three keys `path`, `generatePath`, `template`. All three keys are descr
 
 `template` is a file which will be a wrapper around the markdown contents.
 
-If you are feeling confused, let's implement this on our site.
-
 <br />
 
 ## Creating template file

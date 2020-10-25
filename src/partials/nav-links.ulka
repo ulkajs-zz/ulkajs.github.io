@@ -1,0 +1,25 @@
+{%
+    const links = [
+        { href: "/docs", content: "Docs" },
+        { href: "/tutorial", content: "Tutorial" },
+        { href: "https://github.com/ulkajs/ulka", content: "Github" }
+    ]
+%}
+
+{% 
+    function setActive(href) {
+        if(typeof path === "string" && path === href){
+            return "class='active'"
+        }
+        return ''
+    }
+%}
+
+{% 
+    links.map(l => `
+    <li class="nav-link">
+        <a ${setActive(l.href)} href="${l.href}">
+            ${l.content}
+        </a>
+    </li>`) 
+%}

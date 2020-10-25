@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home | Ulka</title>
+    <%- $import('../partials/meta-tags.ulka') %>
     <link rel="shortcut icon" href="./logo.png" type="image/x-icon" />
     <link rel="stylesheet" href="<%= $assets('../styles/style.css') %>" />
     <style>
@@ -18,6 +19,7 @@
 
       .homepage .home-text {
         max-width: 450px;
+        padding: 0 10px;
         font-weight: 400;
         font-size: 15px;
       }
@@ -45,11 +47,50 @@
         justify-content: center;
         background: var(--heavy-background-color);
       }
+
+      .sidebar {
+        position: fixed;
+        margin: 0;
+        top: 60px;
+        height: calc(100vh - 60px);
+        overflow-y: auto;
+        padding: 40px 0px;
+        background: var(--heavy-background-color);
+        min-width: 300px;
+        right: -400px;
+        transition: right 0.5s;
+        z-index: 20;
+      }
+
+      .sidebar .nav-link {
+        margin-left: 0;
+      }
+
+      @media (max-width: 700px) {
+        nav .nav-links {
+          display: none;
+        }
+
+        .toggle-sidebar {
+          display: block;
+        }
+      }
     </style>
   </head>
   <body class="light">
     <%- $import('../partials/nav.ulka', {path: ""}) %>
     <main>
+      <div class="sidebar">
+        <ul class="sidebar-nav">
+          <li class="nav-link">
+            <a href="/">Home</a>
+          </li>
+          <%- $import('../partials/nav-links.ulka') %>
+          <li class="nav-link">
+            <button onclick="toggleTheme()" class="toggle-mode">h</button>
+          </li>
+        </ul>
+      </div>
       <div class="homepage">
         <img src="./logo.png" alt="logo" width="100" />
         <h1 class="home-head">ulkajs</h1>
@@ -58,7 +99,10 @@
           static data to html.
         </p>
         <div class="installation">
-          <img src="<%= $assets('./install.svg') %>" alt="installation" />
+          <img
+            src="<%= $import('./install.ignore.svg') %>"
+            alt="installation"
+          />
         </div>
       </div>
       <footer>ulkajs © 2020</footer>
@@ -66,16 +110,18 @@
     <!-- MAIN FINISH -->
 
     <script>
-      const toggle = document.querySelector('.toggle-mode')
+      const themeTogglers = document.querySelectorAll('.toggle-mode')
 
       function findTheme() {
         let theme = localStorage.getItem('theme')
-        return ['dark', 'light'].includes(theme) ? theme : 'light'
+        return ['dark', 'light'].includes(theme) ? theme : 'dark'
       }
 
       function setTheme(theme) {
         document.body.className = theme
-        toggle.textContent = theme === 'light' ? '🌙' : '🌕'
+        themeTogglers.forEach(toggle => {
+          toggle.textContent = theme === 'light' ? '🌙' : '🌕'
+        })
         localStorage.setItem('theme', theme)
       }
 
@@ -86,6 +132,15 @@
       }
 
       setTheme(findTheme())
+    </script>
+
+    <script>
+      const sidebar = document.querySelector('.sidebar')
+      const toggler = document.querySelector('.toggle-sidebar')
+
+      toggler.addEventListener('click', e => {
+        sidebar.classList.toggle('right-0')
+      })
     </script>
   </body>
 </html>
