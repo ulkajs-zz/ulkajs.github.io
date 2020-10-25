@@ -7,6 +7,9 @@
     <link rel="shortcut icon" href="/logo.png" type="image/x-icon" />
     <link rel="stylesheet" href="{% $assets('../styles/style.css') %}" />
     <link rel="stylesheet" href="{% $assets('../styles/highlight.css') %}" />
+
+    {% $import('../partials/fonts.ulka', {}, true) %}
+
     <style>
         
     .sidebar-nav {
