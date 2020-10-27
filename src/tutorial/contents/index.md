@@ -252,4 +252,6 @@ Now if you navigate to `/blog` you will see the lists of posts we have created. 
 
 Replace the previous logic with this. This will sort the contents according to the date in frontmatter. Now, if you navigate to `/blog` you will see the list of contents sorted according to date.
 
+![blog page](./blog.webp)
+
 If you are following from the begining then `contents`, `templates` and `pages` should be pretty clear till now. In next section we will separate repeated ulka code into different files.

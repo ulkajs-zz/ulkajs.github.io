@@ -29,23 +29,14 @@ body {
   padding: 0;
   font-family: 'Poppins', sans-serif;
 }
-
-blockquote {
-  margin-left: 0;
-  padding-left: 20px;
-  font-style: italic;
-}
 a {
-  color: var(--tertiary-color);
+  color: #000;
   text-decoration: none;
 }
 .container {
   width: 90%;
   max-width: 700px;
   margin: auto;
-}
-.title a {
-  color: var(--secondary-color);
 }
 nav {
   justify-content: space-between;
@@ -69,17 +60,20 @@ nav .title {
 }
 main {
   min-height: calc(100vh - 40px);
+  padding-bottom: 10px;
 }
+
 .blog-item {
-  border: 1px solid var(--tertiary-color);
-  padding: 10px;
-  border-radius: 10px;
+  padding: 20px 30px;
+  border-radius: 4px;
+  box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.3);
   margin-bottom: 20px;
+  border: 1px solid rgba(138, 130, 130, 0.096);
 }
 .blog-title,
 footer,
 main {
-  color: var(--tertiary-color);
+  color: var(--primary-invert-color);
 }
 .blog-title {
   font-size: 35px;
@@ -92,6 +86,7 @@ main {
 }
 .blog-date {
   font-size: 14px;
+  color: var(--heading-color);
 }
 .blog-body {
   margin-top: 40px;
@@ -100,6 +95,13 @@ code,
 pre,
 pre span {
   font-family: Ubuntu Mono, monospace !important;
+}
+footer {
+  text-align: center;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 ```
 
