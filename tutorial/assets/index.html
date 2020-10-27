@@ -6,23 +6,14 @@ body {
   padding: 0;
   font-family: 'Poppins', sans-serif;
 }
-
-blockquote {
-  margin-left: 0;
-  padding-left: 20px;
-  font-style: italic;
-}
 a {
-  color: var(--tertiary-color);
+  color: #000;
   text-decoration: none;
 }
 .container {
   width: 90%;
   max-width: 700px;
   margin: auto;
-}
-.title a {
-  color: var(--secondary-color);
 }
 nav {
   justify-content: space-between;
@@ -46,17 +37,20 @@ nav .title {
 }
 main {
   min-height: calc(100vh - 40px);
+  padding-bottom: 10px;
 }
+
 .blog-item {
-  border: 1px solid var(--tertiary-color);
-  padding: 10px;
-  border-radius: 10px;
+  padding: 20px 30px;
+  border-radius: 4px;
+  box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.3);
   margin-bottom: 20px;
+  border: 1px solid rgba(138, 130, 130, 0.096);
 }
 .blog-title,
 footer,
 main {
-  color: var(--tertiary-color);
+  color: var(--primary-invert-color);
 }
 .blog-title {
   font-size: 35px;
@@ -69,6 +63,7 @@ main {
 }
 .blog-date {
   font-size: 14px;
+  color: var(--heading-color);
 }
 .blog-body {
   margin-top: 40px;
@@ -77,6 +72,13 @@ code,
 pre,
 pre span {
   font-family: Ubuntu Mono, monospace !important;
+}
+footer {
+  text-align: center;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </code></pre> <p><br></p> <h2 style="" class="ulka-heading" id="using-styles"><a class="ulka-heading-anchor" href="#using-styles"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> Using styles</h2> <p>Now, goto <code>pages/index.ulka</code>, <code>pages/about.ulka</code>, <code>pages/blog.ulka</code> and <code>templates/blog.ulka</code> and add the following code inside <code>&lt;head&gt;</code> tag.</p> <pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;{% $assets('../style.css') %}&quot; /&gt;
 </code></pre> <p>Now, our site should look a bit preetier than before. I agree it's not the best styling that can be done but our focus here is to learn ulka not css. So, let's just move on.</p> <p><br></p> <h2 style="" class="ulka-heading" id="assets-in-css-and-markdown"><a class="ulka-heading-anchor" href="#assets-in-css-and-markdown"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> Assets in css and markdown</h2> <p>You don't need to use $assets function inside css and markdown as ulka will handle that behind the scenes.</p> <p><strong>css</strong></p> <pre><code class="language-css">background-image: url('../some/image.png');
