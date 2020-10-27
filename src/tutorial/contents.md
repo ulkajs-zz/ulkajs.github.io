@@ -116,8 +116,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eros magna.
 
 ```markdown
 ---
-title: 'Getting started with ulka'
-description: 'this is a first blog'
+title: 'This is a second blog'
+description: 'hello from the second blog'
 date: 2020-2-2
 ---
 
