@@ -100,7 +100,7 @@ Now, let's write some markdown inside post-1.md and post-2.md
 ---
 title: 'Getting started with ulka'
 description: 'this is a first blog'
-date: 2020-2-2
+date: 2020-02-02
 ---
 
 # This is a heading 1
@@ -118,7 +118,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eros magna.
 ---
 title: 'This is a second blog'
 description: 'hello from the second blog'
-date: 2020-2-2
+date: 2020-02-04
 ---
 
 # Thi is the second post
