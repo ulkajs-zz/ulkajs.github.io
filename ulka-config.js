@@ -2,7 +2,7 @@ module.exports = {
   siteMetaData: {
     title: 'Ulka',
     description: 'Documentation site for ulkajs',
-    domain: 'https://ulkajs.github.io',
+    domain: 'https://ulka.js.org',
   },
   buildPath: 'build',
   pagesPath: 'pages',
