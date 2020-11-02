@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="{% $assets('../styles/style.css') %}" />
     <link rel="stylesheet" href="{% $assets('../styles/highlight.css') %}" />
 
+    {% $import('../partials/gtag.ulka') %}
+
     {% $import('../partials/fonts.ulka', {}, true) %}
 
     <style>

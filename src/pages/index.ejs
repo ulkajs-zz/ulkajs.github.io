@@ -5,9 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home | Ulka</title>
     <%- $import('../partials/meta-tags.ulka') %>
+    <meta
+      name="google-site-verification"
+      content="0jWi1-tMAYKjyt0F_cJ_B-kws1SVDzPcq0PpAqDIRK8"
+    />
     <link rel="shortcut icon" href="./logo.png" type="image/x-icon" />
     <link rel="stylesheet" href="<%= $assets('../styles/style.css') %>" />
+
+    <%- $import('../partials/gtag.ulka') %>
+
+    <!--  -->
     <%- $import('../partials/fonts.ulka', {}, true) %>
+
     <style>
       .homepage {
         display: flex;
@@ -108,43 +117,43 @@
     <!-- MAIN FINISH -->
 
     <script>
-      const themeTogglers = document.querySelectorAll('.toggle-mode')
+      const themeTogglers = document.querySelectorAll(".toggle-mode");
 
       function findTheme() {
-        let theme = localStorage.getItem('theme')
-        return ['dark', 'light'].includes(theme) ? theme : 'dark'
+        let theme = localStorage.getItem("theme");
+        return ["dark", "light"].includes(theme) ? theme : "dark";
       }
 
       function setTheme(theme) {
-        document.body.className = theme
-        themeTogglers.forEach(toggle => {
-          toggle.textContent = theme === 'light' ? '🌙' : '🌕'
-        })
-        localStorage.setItem('theme', theme)
+        document.body.className = theme;
+        themeTogglers.forEach((toggle) => {
+          toggle.textContent = theme === "light" ? "🌙" : "🌕";
+        });
+        localStorage.setItem("theme", theme);
       }
 
       function toggleTheme() {
-        const theme = findTheme()
-        const newTheme = theme === 'light' ? 'dark' : 'light'
-        setTheme(newTheme)
+        const theme = findTheme();
+        const newTheme = theme === "light" ? "dark" : "light";
+        setTheme(newTheme);
       }
 
-      setTheme(findTheme())
+      setTheme(findTheme());
     </script>
 
     <script>
-      const sidebar = document.querySelector('.sidebar')
-      const toggler = document.querySelector('.toggle-sidebar')
+      const sidebar = document.querySelector(".sidebar");
+      const toggler = document.querySelector(".toggle-sidebar");
 
-      toggler.addEventListener('click', e => {
-        sidebar.classList.toggle('right-0')
-      })
+      toggler.addEventListener("click", (e) => {
+        sidebar.classList.toggle("right-0");
+      });
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.0.0/quicklink.umd.js"></script>
     <script>
-      window.addEventListener('load', () => {
-        quicklink.listen()
-      })
+      window.addEventListener("load", () => {
+        quicklink.listen();
+      });
     </script>
   </body>
 </html>
