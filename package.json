@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/ulkajs/ulkajs.github.io#readme",
   "devDependencies": {
-    "ulka": "^0.6.7-rc.7"
+    "ulka": "^0.6.7"
   },
   "dependencies": {
     "ulka-plugin-autolink-headers": "^1.1.2",
