@@ -108,6 +108,7 @@
       }
       .toggle-sidebar {
         display: block;
+        padding-left: 20px;
       }
       .sidebar-nav {
         display: block;

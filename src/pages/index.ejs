@@ -15,7 +15,7 @@
     <%- $import('../partials/gtag.ulka') %>
 
     <!--  -->
-    <%- $import('../partials/fonts.ulka', {}, true) %>
+    <%- $import('../partials/fonts.ulka') %>
 
     <style>
       .homepage {
@@ -83,6 +83,7 @@
 
         .toggle-sidebar {
           display: block;
+          padding-left: 20px;
         }
       }
     </style>
@@ -112,7 +113,7 @@
           <img src="<%= $assets('./install.png') %>" alt="installation" />
         </div>
       </div>
-      <footer>ulkajs © 2020</footer>
+      <%- $import('../partials/footer.ulka') %>
     </main>
     <!-- MAIN FINISH -->
 
@@ -126,6 +127,7 @@
 
       function setTheme(theme) {
         document.body.className = theme;
+
         themeTogglers.forEach((toggle) => {
           toggle.textContent = theme === "light" ? "🌙" : "🌕";
         });

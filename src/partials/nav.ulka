@@ -4,19 +4,22 @@
             <img src="/logo.png" alt="ulka logo" />
             <span>Ulka</span>
         </a>
-        <ul class="nav-links">
-            {% $import('./nav-links.ulka') %}
-            
-            <li class="nav-link">
-                <button onclick="toggleTheme()" class="toggle-mode"></button>
-            </li>
-        </ul>
-        <div class="toggle-sidebar">
-            <svg fill="currentColor" viewBox="0 0 60 44" width="25" height="25">
-                <rect y="0" width="65" height="7"></rect>
-                <rect y="20" width="65" height="7"></rect>
-                <rect y="40" width="65" height="7"></rect>
-            </svg>
+        <div style="display: flex; align-items: center">
+            <ul class="nav-links">
+                {% $import('./nav-links.ulka') %}
+                
+                <li class="nav-link">
+                    <button onclick="toggleTheme()" class="toggle-mode"></button>
+                </li>
+            </ul>
+            <span id="docsearch"></span>
+            <div class="toggle-sidebar">
+                <svg fill="currentColor" viewBox="0 0 60 44" width="25" height="25">
+                    <rect y="0" width="65" height="7"></rect>
+                    <rect y="20" width="65" height="7"></rect>
+                    <rect y="40" width="65" height="7"></rect>
+                </svg>
+            </div>
         </div>
     </div>
 </nav>
