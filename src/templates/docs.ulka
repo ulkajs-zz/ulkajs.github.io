@@ -11,7 +11,7 @@
 
     {% $import('../partials/gtag.ulka') %}
 
-    {% $import('../partials/fonts.ulka', {}, true) %}
+    {% $import('../partials/fonts.ulka') %}
 
     <style>
         
