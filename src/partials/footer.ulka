@@ -1,6 +1,5 @@
 <footer>ulkajs &copy; 2020</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@1.0.0-alpha.28"></script>
 <script>
     docsearch({
         container: "#docsearch",
